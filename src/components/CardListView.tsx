@@ -1,5 +1,6 @@
 import React from 'react';
 import IListItem from '../shared-types/IListItem';
+import '../styles/CardListView.css';
 
 interface IProps {
   items: IListItem[];
@@ -8,9 +9,9 @@ interface IProps {
 const CardListView = ({ items }: IProps) => {
 
   return (
-    <ul>
-      {items.map(({ title, description, imageSrc }) => (
-        <li className='card-list__item'>
+    <ul className='card-list'>
+      {items.map(({ id, title, description, imageSrc }) => (
+        <li key={id} className='card-list__item'>
           <div className='card-list__item-image'>
             <img
               src={imageSrc} 

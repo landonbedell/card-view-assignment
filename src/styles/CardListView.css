@@ -1,0 +1,37 @@
+.card-list {
+  max-width: 800px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.card-list__item {
+  display: flex;
+  background-color: black;
+  color: white;
+  padding: 1rem 2rem;
+  margin: 2rem;
+  border-radius: 2rem;
+}
+
+.card-list__item-image {
+  flex: 1;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.card-list__item-image img {
+  max-width: 100%;
+}
+
+.even-aspect-ratio {
+  position: absolute;
+  padding-bottom: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.card-list__item-info {
+  flex: 1;
+}

@@ -4,6 +4,7 @@ import fetchMarsRoverImagery from '../services/apiService';
 import CardListView from './CardListView';
 
 const normalizeMarsImageData = (data: any): IListItem => ({
+  id: data.id,
   title: `${data.rover.name} - ${data.camera.full_name}`,
   description: `SOL: ${data.sol}`,
   imageSrc: data.img_src,
