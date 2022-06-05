@@ -1,5 +1,5 @@
 const marsRoverImageryCache: any = {};
-const fetchMarsRoverImagery = async (page: number = 0) => {
+const fetchMarsRoverImagery = async (page: number = 1) => {
   if (marsRoverImageryCache[page]) {
     return marsRoverImageryCache[page];
   }

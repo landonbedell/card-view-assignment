@@ -6,17 +6,29 @@ import CardListView from './CardListView';
 const normalizeMarsImageData = (data: any): IListItem => ({
   id: data.id,
   title: `${data.rover.name} - ${data.camera.full_name}`,
-  description: `SOL: ${data.sol}`,
   imageSrc: data.img_src,
+  href: 'https://api.nasa.gov/',
+  description: (
+    <ul>
+      <li>Date: {new Date(data.earth_date).toDateString()}</li>
+      <li>SOL: {data.sol}</li>
+    </ul>
+  ),
+  controls: [
+    <button key='show-more' onClick={() => alert(`Clicked ${data.id}`)}>
+      More
+    </button>,
+  ],
+
 });
 
 const useMarsImagery = (): [IListItem[], () => void] => {
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
   const [items, setItems] = useState<IListItem[]>([]);
   useEffect(() => {
-    (async () => {
+    (async () => {  
       const images = await fetchMarsRoverImagery(page);
-      setItems(items => [...items, ...images.map(normalizeMarsImageData)]);
+      setItems(curItems => [...curItems, ...images.map(normalizeMarsImageData)]);
     })();
   }, [page]);
 
@@ -27,7 +39,7 @@ const useMarsImagery = (): [IListItem[], () => void] => {
 const MarsImageryView = () => {
   const [marsImagery, nextPage] = useMarsImagery();
   return (
-    <CardListView items={marsImagery} />
+    <CardListView items={marsImagery} showMoreCallback={nextPage}/>
   );
 };
 
