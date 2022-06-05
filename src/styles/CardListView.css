@@ -68,6 +68,11 @@ button {
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  transition: box-shadow 200ms;
+} 
+
+button:hover {
+  box-shadow: 0 4px 10px gray;
 }
 
 .card-list__show-more {

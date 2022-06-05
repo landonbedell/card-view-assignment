@@ -5,7 +5,7 @@ interface IListItem {
   title: string;
   description: string | React.ReactNode;
   imageSrc: string;
-  href?: string;
+  href: string;
   controls?: React.ReactNode[];
 }
 

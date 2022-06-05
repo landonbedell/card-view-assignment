@@ -14,7 +14,7 @@ Launches the test runner in the interactive watch mode.\
 
 ## TODO
 
-- add tests
+- add more tests
 - Infinite scroll
 - Standardize card height
 - Improve general card styling
