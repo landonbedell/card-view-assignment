@@ -5,11 +5,13 @@ import CardListView from './CardListView';
 
 const normalizeMarsImageData = (data: any): IListItem => ({
   id: data.id,
-  title: `${data.rover.name} - ${data.camera.full_name}`,
+  title: `${data.rover.name} - ${data.camera.name}`,
   imageSrc: data.img_src,
   href: 'https://api.nasa.gov/',
   description: (
     <ul>
+      <li>Rover: {data.rover.name} </li>
+      <li>Camera: {data.camera.full_name}</li>
       <li>Date: {new Date(data.earth_date).toDateString()}</li>
       <li>SOL: {data.sol}</li>
     </ul>
